@@ -1,6 +1,11 @@
 import React from "react";
 import logo from "../assets/logo.png";
-import { GiDwarfHelmet, GiGuards, GiGreatPyramid, GiSwordWound } from "react-icons/gi";
+import {
+  GiDwarfHelmet,
+  GiGuards,
+  GiGreatPyramid,
+  GiSwordWound
+} from "react-icons/gi";
 
 import TabLink from "./TabLink";
 
@@ -24,8 +29,8 @@ function Navbar() {
               <TabLink
                 to={{ type: "HEROES", params: { value: "pro" } }}
                 active="/heroes/:value"
-								icon={<GiDwarfHelmet className="h-6 w-6 mr-2" />}
-								text={"Heroes"}
+                icon={<GiDwarfHelmet className="h-6 w-6 mr-2" />}
+                text={"Heroes"}
               />
               <TabLink
                 to={{ type: "MATCHES" }}
@@ -34,7 +39,7 @@ function Navbar() {
                 text={"Matches"}
               />
               <TabLink
-                to={{ type: "TEAMS"}}
+                to={{ type: "TEAMS" }}
                 active="/teams"
                 icon={<GiGuards className="h-6 w-6 mr-2" />}
                 text={"Teams"}

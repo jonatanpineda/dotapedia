@@ -4,8 +4,8 @@ import classnames from "classnames";
 import matchPath from "rudy-match-path/dist";
 
 function TabLink({ to, goTo, text, active, icon, path }) {
-	const isActive = matchPath(path, active);
-  
+  const isActive = matchPath(path, active);
+
   return (
     <div className="flex -mb-px mr-8">
       <span
@@ -25,6 +25,6 @@ function TabLink({ to, goTo, text, active, icon, path }) {
 }
 
 export default connect(
-  (state) => ({ path: state.location.pathname}),
+  state => ({ path: state.location.pathname }),
   (dispatch, ownProps) => ({ goTo: () => dispatch(ownProps.to) })
 )(TabLink);

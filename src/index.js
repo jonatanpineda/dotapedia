@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './assets/main.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import {firstRoute, store} from "./store";
+import React from "react";
+import ReactDOM from "react-dom";
+import "./assets/main.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import { firstRoute, store } from "./store";
 
 function render() {
-	ReactDOM.render(<App />, document.getElementById('root'));
+  ReactDOM.render(<App />, document.getElementById("root"));
 }
 
 store.dispatch(firstRoute()).then(render());

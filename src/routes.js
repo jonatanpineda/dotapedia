@@ -2,7 +2,7 @@ export default {
   HOME: {
     path: "/"
   },
-	HEROES: {
+  HEROES: {
     path: "/heroes/:value"
   },
   MATCHES: {
