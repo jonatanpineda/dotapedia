@@ -11,17 +11,28 @@ import { actionSplitterMiddleware } from "./middleware/core/actionSplitter.middl
 import { apiMiddleware } from "./middleware/core/api.middleware";
 import { pageMiddleware } from "./middleware/feature/page.middleware";
 import { camelizeMiddleware } from "./middleware/core/camelize.middleware";
+import { matchesProReducer } from "./reducers/matchesPro.reducer";
+import { matchesPublicReducer } from "./reducers/matchesPublic.reducer";
+import { matchesPublicMiddleware } from "./middleware/feature/matchesPublic.middleware";
+import { matchesProMiddleware } from "./middleware/feature/matchesPro.middleware";
 
 const { reducer, middleware, firstRoute } = createRouter(routes, {});
 
 const rootReducer = combineReducers({
   heroes: heroesReducer,
   network: networkReducer,
+  matchesPro: matchesProReducer,
+  matchesPublic: matchesPublicReducer,
   page,
   location: reducer
 });
 
-const featureMiddleware = [pageMiddleware, heroesMiddleware];
+const featureMiddleware = [
+  pageMiddleware,
+  heroesMiddleware,
+  matchesPublicMiddleware,
+  matchesProMiddleware
+];
 
 const coreMiddleware = [
   actionSplitterMiddleware,

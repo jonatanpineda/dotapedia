@@ -8,6 +8,7 @@ import {
   getMatchCountProString
 } from "../store/selectors/heroes.selectors";
 import { decimalToCount, percent, percentageToColor } from "../utils";
+import {HEROES} from "../store/actions/heroes.actions";
 
 const columns = [
   {
@@ -67,7 +68,7 @@ const columns = [
   }
 ];
 
-function HeroesPro({ heroes, matchCount }) {
+function HeroesPro({ heroes, matchCount, loading }) {
   return (
     <div>
       <div className="flex flex-col m-6">
@@ -76,7 +77,7 @@ function HeroesPro({ heroes, matchCount }) {
         </div>
         <div className="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
           <div className="inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-800">
-            <Table columns={columns} data={heroes} />
+            <Table columns={columns} data={heroes} keyId="id" loading={loading}/>
           </div>
         </div>
       </div>
@@ -86,5 +87,6 @@ function HeroesPro({ heroes, matchCount }) {
 
 export default connect(state => ({
   heroes: getHeroesCalculated(state),
-  matchCount: getMatchCountProString(state)
+  matchCount: getMatchCountProString(state),
+  loading: state.network[HEROES]
 }))(HeroesPro);

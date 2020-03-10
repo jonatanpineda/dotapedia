@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export function abbreviateNumber(num) {
   if (!num) {
     return "-";
@@ -43,3 +45,49 @@ export function decimalToCount(decimal, matchTotal) {
 }
 
 export const sum = (a, b) => a + b;
+
+export function getMinutesSecondsString(duration) {
+  let time;
+  const d = moment.duration(duration * 1000);
+  const h = d.hours();
+  const m = d.minutes();
+  const s = d.seconds();
+
+  if (h > 0) {
+    time = h * 60 + m;
+  } else {
+    time = m;
+  }
+
+  if (s < 10) {
+    time += ":0" + s;
+  } else {
+    time += ":" + s;
+  }
+
+  return time;
+}
+
+const tiers = {
+  "rank_tier_0": "Uncalibrated",
+  "rank_tier_1": "Herald",
+  "rank_tier_2": "Guardian",
+  "rank_tier_3": "Crusader",
+  "rank_tier_4": "Archon",
+  "rank_tier_5": "Legend",
+  "rank_tier_6": "Ancient",
+  "rank_tier_7": "Divine",
+  "rank_tier_8": "Immortal",
+};
+
+export function rankTierToString(rankTier) {
+  if (rankTier !== parseInt(rankTier, 10)) {
+    return "Unknown";
+  }
+  const intRankTier = parseInt(rankTier, 10);
+  let rank = tiers[`rank_tier_${parseInt(intRankTier / 10, 10)}`];
+  if (intRankTier > 9 && intRankTier !== 80) {
+    rank += ` [${parseInt(intRankTier % 10, 10)}]`;
+  }
+  return rank;
+}

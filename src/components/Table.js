@@ -1,6 +1,23 @@
 import React from "react";
+import Spinner from "react-spinkit";
 
-function Table({ columns, data }) {
+function Table({ columns, data, keyId, loading }) {
+  if (loading)
+    return (
+      <div style={{ margin: "100%" }}>
+        <Spinner
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%"
+          }}
+          fadeIn="none"
+          name="cube-grid"
+          color="white"
+        />
+      </div>
+    );
+
   return (
     <table className="min-w-full">
       <thead>
@@ -17,7 +34,7 @@ function Table({ columns, data }) {
       </thead>
       <tbody className="bg-gray-900">
         {data.map(d => (
-          <tr key={d.id}>
+          <tr key={d[keyId]}>
             {columns.map(c => (
               <td
                 key={c.title}

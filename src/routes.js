@@ -6,7 +6,7 @@ export default {
     path: "/heroes/:value"
   },
   MATCHES: {
-    path: "/matches"
+    path: "/matches/:value"
   },
   TEAMS: {
     path: "/teams"

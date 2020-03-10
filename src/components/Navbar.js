@@ -28,7 +28,7 @@ function Navbar() {
                 text={"Heroes"}
               />
               <TabLink
-                to={{ type: "MATCHES" }}
+                to={{ type: "MATCHES", params: { value: "pro"}  }}
                 active={"/matches"}
                 icon={<GiSwordWound className="h-6 w-6 mr-2" />}
                 text={"Matches"}
