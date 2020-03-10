@@ -8,13 +8,17 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "classnames": "^2.2.6",
+    "dotaconstants": "^6.31.0",
+    "humps": "^2.0.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-icons": "^3.9.0",
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.0",
+    "react-spinkit": "^3.0.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
+    "reselect": "^4.0.0",
     "rudy-match-path": "^0.3.0"
   },
   "scripts": {

@@ -4,13 +4,15 @@ import HeroesPublic from "./HeroesPublic";
 import NotFound from "./NotFound";
 import TabLink from "./TabLink";
 import { connect } from "react-redux";
+import withLoadingIndicator from "./withLoadingIndicator";
+import {HEROES} from "../store/actions/heroes.actions";
 
 const Tables = {
   pro: <HeroesPro />,
   public: <HeroesPublic />
 };
 
-function Heroes({ value }) {
+function Heroes({ value, loading }) {
   if (!Tables[value]) return <NotFound />;
 
   return (
@@ -38,6 +40,7 @@ function Heroes({ value }) {
   );
 }
 
-export default connect(state => ({ value: state.location.params.value }))(
-  Heroes
-);
+export default connect(state => ({
+  value: state.location.params.value,
+  loading: state.network[HEROES]
+}))(withLoadingIndicator(Heroes));
