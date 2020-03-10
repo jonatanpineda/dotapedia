@@ -1,10 +1,10 @@
 import React from "react";
 
-function PercentBar({ percent, value, color }) {
+function PercentBar({ percent, value, color, showPercent=true, label }) {
   return (
     <div className="text-gray-500 text-sm" style={{ minWidth: 100 }}>
       <div>
-        {percent} <small>{value}</small>
+        {showPercent ? percent : label} <small>{value}</small>
       </div>
       <div className="bg-gray-700 h-2 flex-grow mr-2" style={{ height: "4px" }}>
         <div

@@ -15,6 +15,8 @@ import { matchesProReducer } from "./reducers/matchesPro.reducer";
 import { matchesPublicReducer } from "./reducers/matchesPublic.reducer";
 import { matchesPublicMiddleware } from "./middleware/feature/matchesPublic.middleware";
 import { matchesProMiddleware } from "./middleware/feature/matchesPro.middleware";
+import { teamsReducer } from "./reducers/teams.reducer";
+import {teamsMiddleware} from "./middleware/feature/teams.middleware";
 
 const { reducer, middleware, firstRoute } = createRouter(routes, {});
 
@@ -23,6 +25,7 @@ const rootReducer = combineReducers({
   network: networkReducer,
   matchesPro: matchesProReducer,
   matchesPublic: matchesPublicReducer,
+  teams: teamsReducer,
   page,
   location: reducer
 });
@@ -31,7 +34,8 @@ const featureMiddleware = [
   pageMiddleware,
   heroesMiddleware,
   matchesPublicMiddleware,
-  matchesProMiddleware
+  matchesProMiddleware,
+  teamsMiddleware
 ];
 
 const coreMiddleware = [

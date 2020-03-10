@@ -33,14 +33,14 @@ function Table({ columns, data, keyId, loading }) {
         </tr>
       </thead>
       <tbody className="bg-gray-900">
-        {data.map(d => (
+        {data.map((d, i) => (
           <tr key={d[keyId]}>
             {columns.map(c => (
               <td
                 key={c.title}
                 className="px-6 py-4 whitespace-no-wrap border-b border-gray-800"
               >
-                {c.renderItem(d)}
+                {c.renderItem(d, i)}
               </td>
             ))}
           </tr>

@@ -1,6 +1,7 @@
 import { fetchHeroes } from "../../actions/heroes.actions";
-import {fetchMatchesPro} from "../../actions/matchesPro.actions";
-import {fetchMatchesPublic} from "../../actions/matchesPublic.actions";
+import { fetchMatchesPro } from "../../actions/matchesPro.actions";
+import { fetchMatchesPublic } from "../../actions/matchesPublic.actions";
+import { fetchTeams } from "../../actions/teams.actions";
 
 export const pageMiddleware = store => next => action => {
   next(action);
@@ -13,16 +14,23 @@ export const pageMiddleware = store => next => action => {
       break;
     }
 
+    case "TEAMS": {
+      if (store.getState().teams.length === 0) {
+        next(fetchTeams());
+      }
+      break;
+    }
+
     case "MATCHES": {
       const state = store.getState();
       const matchesPro = state.matchesPro;
       const matchesPublic = state.matchesPublic;
 
-      if(action.params.value === "pro" && matchesPro.length === 0) {
+      if (action.params.value === "pro" && matchesPro.length === 0) {
         next(fetchMatchesPro());
       }
 
-      if(action.params.value === "highMmr" && matchesPublic.length === 0) {
+      if (action.params.value === "highMmr" && matchesPublic.length === 0) {
         next(fetchMatchesPublic());
       }
 

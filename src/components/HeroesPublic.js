@@ -7,7 +7,7 @@ import {
   getHeroesCalculated,
   getMatchCountPublicString
 } from "../store/selectors/heroes.selectors";
-import { decimalToCount, percent, percentageToColor } from "../utils";
+import { decimalToCount, toPercentage, percentageToColor } from "../utils";
 import {HEROES} from "../store/actions/heroes.actions";
 
 const columns = [
@@ -30,9 +30,9 @@ const columns = [
     title: "IM P%",
     renderItem: ({ pickRate8, matchCount8 }) => (
       <PercentBar
-        percent={percent(pickRate8)}
+        percent={toPercentage(pickRate8)}
         value={decimalToCount(pickRate8, matchCount8)}
-        color={percentageToColor(percent(pickRate8))}
+        color={percentageToColor(toPercentage(pickRate8))}
       />
     )
   },
@@ -40,9 +40,9 @@ const columns = [
     title: "IM W%",
     renderItem: row => (
       <PercentBar
-        percent={percent(row.winRate8)}
+        percent={toPercentage(row.winRate8)}
         value={decimalToCount(row.winRate8, row["8Pick"])}
-        color={percentageToColor(percent(row.winRate8))}
+        color={percentageToColor(toPercentage(row.winRate8))}
       />
     )
   },
@@ -50,9 +50,9 @@ const columns = [
     title: "DI P%",
     renderItem: ({ pickRate7, matchCount7 }) => (
       <PercentBar
-        percent={percent(pickRate7)}
+        percent={toPercentage(pickRate7)}
         value={decimalToCount(pickRate7, matchCount7)}
-        color={percentageToColor(percent(pickRate7))}
+        color={percentageToColor(toPercentage(pickRate7))}
       />
     )
   },
@@ -60,9 +60,9 @@ const columns = [
     title: "DI W%",
     renderItem: row => (
       <PercentBar
-        percent={percent(row.winRate7)}
+        percent={toPercentage(row.winRate7)}
         value={decimalToCount(row.winRate7, row["7Pick"])}
-        color={percentageToColor(percent(row.winRate7))}
+        color={percentageToColor(toPercentage(row.winRate7))}
       />
     )
   },
@@ -70,9 +70,9 @@ const columns = [
     title: "AN P%",
     renderItem: ({ pickRate6, matchCount6 }) => (
       <PercentBar
-        percent={percent(pickRate6)}
+        percent={toPercentage(pickRate6)}
         value={decimalToCount(pickRate6, matchCount6)}
-        color={percentageToColor(percent(pickRate6))}
+        color={percentageToColor(toPercentage(pickRate6))}
       />
     )
   },
@@ -80,9 +80,9 @@ const columns = [
     title: "AN W%",
     renderItem: row => (
       <PercentBar
-        percent={percent(row.winRate6)}
+        percent={toPercentage(row.winRate6)}
         value={decimalToCount(row.winRate6, row["6Pick"])}
-        color={percentageToColor(percent(row.winRate6))}
+        color={percentageToColor(toPercentage(row.winRate6))}
       />
     )
   },
@@ -90,9 +90,9 @@ const columns = [
     title: "LE P%",
     renderItem: ({ pickRate5, matchCount5 }) => (
       <PercentBar
-        percent={percent(pickRate5)}
+        percent={toPercentage(pickRate5)}
         value={decimalToCount(pickRate5, matchCount5)}
-        color={percentageToColor(percent(pickRate5))}
+        color={percentageToColor(toPercentage(pickRate5))}
       />
     )
   },
@@ -100,9 +100,9 @@ const columns = [
     title: "LE W%",
     renderItem: row => (
       <PercentBar
-        percent={percent(row.winRate5)}
+        percent={toPercentage(row.winRate5)}
         value={decimalToCount(row.winRate5, row["5Pick"])}
-        color={percentageToColor(percent(row.winRate5))}
+        color={percentageToColor(toPercentage(row.winRate5))}
       />
     )
   },
@@ -110,9 +110,9 @@ const columns = [
     title: "AR P%",
     renderItem: ({ pickRate4, matchCount4 }) => (
       <PercentBar
-        percent={percent(pickRate4)}
+        percent={toPercentage(pickRate4)}
         value={decimalToCount(pickRate4, matchCount4)}
-        color={percentageToColor(percent(pickRate4))}
+        color={percentageToColor(toPercentage(pickRate4))}
       />
     )
   },
@@ -120,9 +120,9 @@ const columns = [
     title: "AR W%",
     renderItem: row => (
       <PercentBar
-        percent={percent(row.winRate4)}
+        percent={toPercentage(row.winRate4)}
         value={decimalToCount(row.winRate4, row["4Pick"])}
-        color={percentageToColor(percent(row.winRate4))}
+        color={percentageToColor(toPercentage(row.winRate4))}
       />
     )
   },
@@ -130,9 +130,9 @@ const columns = [
     title: "CR P%",
     renderItem: ({ pickRate3, matchCount3 }) => (
       <PercentBar
-        percent={percent(pickRate3)}
+        percent={toPercentage(pickRate3)}
         value={decimalToCount(pickRate3, matchCount3)}
-        color={percentageToColor(percent(pickRate3))}
+        color={percentageToColor(toPercentage(pickRate3))}
       />
     )
   },
@@ -140,9 +140,9 @@ const columns = [
     title: "CR W%",
     renderItem: row => (
       <PercentBar
-        percent={percent(row.winRate3)}
+        percent={toPercentage(row.winRate3)}
         value={decimalToCount(row.winRate3, row["3Pick"])}
-        color={percentageToColor(percent(row.winRate3))}
+        color={percentageToColor(toPercentage(row.winRate3))}
       />
     )
   },
@@ -150,9 +150,9 @@ const columns = [
     title: "GU P%",
     renderItem: ({ pickRate2, matchCount2 }) => (
       <PercentBar
-        percent={percent(pickRate2)}
+        percent={toPercentage(pickRate2)}
         value={decimalToCount(pickRate2, matchCount2)}
-        color={percentageToColor(percent(pickRate2))}
+        color={percentageToColor(toPercentage(pickRate2))}
       />
     )
   },
@@ -160,9 +160,9 @@ const columns = [
     title: "GU W%",
     renderItem: row => (
       <PercentBar
-        percent={percent(row.winRate2)}
+        percent={toPercentage(row.winRate2)}
         value={decimalToCount(row.winRate2, row["2Pick"])}
-        color={percentageToColor(percent(row.winRate2))}
+        color={percentageToColor(toPercentage(row.winRate2))}
       />
     )
   },
@@ -170,9 +170,9 @@ const columns = [
     title: "HE P%",
     renderItem: ({ pickRate1, matchCount1 }) => (
       <PercentBar
-        percent={percent(pickRate1)}
+        percent={toPercentage(pickRate1)}
         value={decimalToCount(pickRate1, matchCount1)}
-        color={percentageToColor(percent(pickRate1))}
+        color={percentageToColor(toPercentage(pickRate1))}
       />
     )
   },
@@ -180,9 +180,9 @@ const columns = [
     title: "HE W%",
     renderItem: row => (
       <PercentBar
-        percent={percent(row.winRate1)}
+        percent={toPercentage(row.winRate1)}
         value={decimalToCount(row.winRate1, row["1Pick"])}
-        color={percentageToColor(percent(row.winRate1))}
+        color={percentageToColor(toPercentage(row.winRate1))}
       />
     )
   }

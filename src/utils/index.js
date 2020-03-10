@@ -16,7 +16,11 @@ export function abbreviateNumber(num) {
   return num.toFixed(0);
 }
 
-export function percent(num) {
+export function getPercentage(valueIf, valueThen) {
+  return Number(valueThen * 100 / valueIf);
+}
+
+export function toPercentage(num) {
   return Number((num * 100).toFixed(1));
 }
 
@@ -91,3 +95,11 @@ export function rankTierToString(rankTier) {
   }
   return rank;
 }
+
+
+export const getOrdinal = (n) => {
+  // TODO localize
+  const s = ['th', 'st', 'nd', 'rd'];
+  const v = n % 100;
+  return n + (s[(v - 20) % 10] || s[v] || s[0]);
+};

@@ -7,7 +7,7 @@ import {
   getHeroesCalculated,
   getMatchCountProString
 } from "../store/selectors/heroes.selectors";
-import { decimalToCount, percent, percentageToColor } from "../utils";
+import { decimalToCount, toPercentage, percentageToColor } from "../utils";
 import {HEROES} from "../store/actions/heroes.actions";
 
 const columns = [
@@ -30,9 +30,9 @@ const columns = [
     title: "PRO P+B%",
     renderItem: ({ pickBanRatePro, matchCountPro }) => (
       <PercentBar
-        percent={percent(pickBanRatePro)}
+        percent={toPercentage(pickBanRatePro)}
         value={decimalToCount(pickBanRatePro, matchCountPro)}
-        color={percentageToColor(percent(pickBanRatePro))}
+        color={percentageToColor(toPercentage(pickBanRatePro))}
       />
     )
   },
@@ -40,9 +40,9 @@ const columns = [
     title: "PRO PICK%",
     renderItem: ({ pickRatePro, matchCountPro }) => (
       <PercentBar
-        percent={percent(pickRatePro)}
+        percent={toPercentage(pickRatePro)}
         value={decimalToCount(pickRatePro, matchCountPro)}
-        color={percentageToColor(percent(pickRatePro))}
+        color={percentageToColor(toPercentage(pickRatePro))}
       />
     )
   },
@@ -50,9 +50,9 @@ const columns = [
     title: "PRO BAN%",
     renderItem: ({ banRatePro, matchCountPro }) => (
       <PercentBar
-        percent={percent(banRatePro)}
+        percent={toPercentage(banRatePro)}
         value={decimalToCount(banRatePro, matchCountPro)}
-        color={percentageToColor(percent(banRatePro))}
+        color={percentageToColor(toPercentage(banRatePro))}
       />
     )
   },
@@ -60,9 +60,9 @@ const columns = [
     title: "PRO WIN%",
     renderItem: ({ winRatePro, proPick }) => (
       <PercentBar
-        percent={percent(winRatePro)}
+        percent={toPercentage(winRatePro)}
         value={decimalToCount(winRatePro, proPick)}
-        color={percentageToColor(percent(winRatePro))}
+        color={percentageToColor(toPercentage(winRatePro))}
       />
     )
   }
